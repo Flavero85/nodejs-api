@@ -7,7 +7,7 @@ const herois =["Homem-Aranha", "Hulk", "Ms marvel"]
 app.get("/herois", function(req,res){
     res.send(herois)
 })
-
+//ENDPOINT listagem de UM heroi (READ SINGLE ==> [GET])
 app.get("/herois/:id", function(req,res){
     //acessar o parametro da rota ID
     const id = req.params.id
@@ -17,6 +17,10 @@ app.get("/herois/:id", function(req,res){
     res.send(umHeroi)
 })
 
+//todo o corpo da requisição virá como JSON
+app.use(express.json())
+
+//ENDPOINT de criação (CREATE ==> [POST])
 app.post("/herois", function(req,res){
     res.send(req.body)
 })
